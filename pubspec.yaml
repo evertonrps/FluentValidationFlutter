@@ -1,7 +1,7 @@
 name: fluent_validation_flutter
 description: Fluent Validation for Flutter
 version: 0.0.1
-author: homepage:https://github.com/evertonrps/FluentValidationFlutter
+homepage: https://github.com/evertonrps/FluentValidationFlutter
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
