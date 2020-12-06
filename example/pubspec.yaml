@@ -30,9 +30,8 @@ dependencies:
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
-  #fluent_validation_flutter:
-  #  path: ../
-  fluent_validation_flutter: ^0.0.1
+  fluent_validation_flutter:
+   path: ../  
   flutter_test:
     sdk: flutter
 

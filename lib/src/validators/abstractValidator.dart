@@ -7,14 +7,14 @@ import 'package:fluent_validation_flutter/src/validators/baseValidator.dart';
 abstract class AbstractValidator<T> {
   T instance;
   Map<String, RuleContainer<T>> _rules;
-  String erros;
-  List<String> allErros;
+  String errors;
+  List<String> allErrors;
 
   //AbstractValidator(this.instance) {
   AbstractValidator() {
     //FYI - RuleContainer is just a list of validators that are 'assigned' to a particular property to validate.
     _rules = Map<String, RuleContainer<T>>();
-    allErros = List<String>();
+    allErrors = List<String>();
   }
 
   ///Create a container to hold rules for a property.  The value of the
@@ -52,14 +52,14 @@ abstract class AbstractValidator<T> {
     _rules.forEach((key, container) {
       result.add(validateRuleFor(object, key));
     });
-    erros = errors(result);
+    errors = concatenatedErrors(result);
     getErrors(result);
     return result;
   }
 
   ///Returns all errors in a text format.  Errors are separated by delimiter (default is a space).
   ///IMPORTANT: Executing this method has the side-effect of also executing validate().
-  String errors(List<ValidationResult> list) {
+  String concatenatedErrors(List<ValidationResult> list) {
     //var lst = validate();
     String result = list.fold<String>('', (previous, element) {
       return element.errorText != null
@@ -72,10 +72,10 @@ abstract class AbstractValidator<T> {
 
   getErrors(List<ValidationResult> list) {
     //var lst = validate();
-    allErros.clear();
+    allErrors.clear();
     for (var item in list) {
       for (var e in item.errors) {
-        allErros.add(e.errorMessage.trim());
+        allErrors.add(e.errorMessage.trim());
       }
     }
 
@@ -89,7 +89,7 @@ abstract class AbstractValidator<T> {
   }
 
   bool isValid() {
-    if (allErros != null && allErros.length > 0) {
+    if (allErrors != null && allErrors.length > 0) {
       return false;
     } else {
       return true;

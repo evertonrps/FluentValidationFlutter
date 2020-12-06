@@ -12,17 +12,17 @@ void main() {
 abstract class Entity<T> extends BaseValidator {}
 
 class BaseValidator {
-  List<String> _erros = new List<String>();
-  List<String> get erros => _erros;
+  List<String> _errors = new List<String>();
+  List<String> get errors => _errors;
   BaseValidator();
 
   void validateNow<T>(AbstractValidator<T> validator, T instance) {
     validator.validate(instance);
-    _erros = validator.allErros;
+    _errors = validator.allErrors;
   }
 
   bool isValid() {
-    if (_erros.length > 0) {
+    if (_errors.length > 0) {
       return false;
     } else {
       return true;

@@ -90,7 +90,7 @@ void main() {
       ..notEqual(() => 'password');
 
     myValidator.validate(contact);
-    var allErrors = myValidator.allErros;
+    var allErrors = myValidator.allErrors;
     expect(allErrors.contains('name must be specified.'), true);
     expect(allErrors.contains('phone is not valid.'), true);
     expect(allErrors.contains('password must be between 16 and 16.'), true);
@@ -108,7 +108,7 @@ void main() {
     myValidator.ruleFor('name', (contact) => contact.name)
       ..must<String>(nameMustNotBeFred);
     myValidator.validate(contact);
-    var allErrors = myValidator.allErros;
+    var allErrors = myValidator.allErrors;
     expect(allErrors.length, 0);
   });
 
@@ -124,7 +124,7 @@ void main() {
     myValidator.ruleFor('name', (contact) => contact.name)
       ..must<String>(nameMustNotBeFred);
     myValidator.validate(contact);
-    var allErrors = myValidator.allErros;
+    var allErrors = myValidator.allErrors;
     expect(allErrors.contains('name is not valid.'), true);
   });
 }

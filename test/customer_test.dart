@@ -33,7 +33,7 @@ void main() {
     // Act
     validator.validate(client);
     // Asset
-    expect(validator.allErros.length, expected);
+    expect(validator.allErrors.length, expected);
   });
 
   test("test error message", () {
@@ -44,8 +44,8 @@ void main() {
     // Act
     validator.validate(client);
     // Asset
-    expect(validator.allErros.length, 1);
-    expect(validator.allErros.first, expected);
+    expect(validator.allErrors.length, 1);
+    expect(validator.allErrors.first, expected);
   });
 
   test("test custom error message", () {
@@ -59,8 +59,8 @@ void main() {
     validator.validate(client);
     // Asset
     expect(validator.isValid(), expectedResult);
-    expect(validator.allErros.length, 1);
-    expect(validator.allErros.first, expectedMessage);
+    expect(validator.allErrors.length, 1);
+    expect(validator.allErrors.first, expectedMessage);
   });
 
   test("test greater than 18", () {
