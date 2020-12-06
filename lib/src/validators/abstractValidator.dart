@@ -43,8 +43,6 @@ abstract class AbstractValidator<T> {
         }
       });
     }
-    //TODO: throw err if key not found
-
     return result;
   }
 

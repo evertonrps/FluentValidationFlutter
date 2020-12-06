@@ -59,12 +59,6 @@ class RuleBuilder<T> {
     _container.rules.add(validator);
   }
 
-  //TODO
-  // date() {
-  //   var validator = new DateValidator(_key);
-  //   _container.rules.add(validator);
-  // }
-
   matches(String regex) {
     var validator = new RegExpValidator(_key, regex);
     _container.rules.add(validator);
