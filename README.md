@@ -45,4 +45,4 @@ List<String> errors = validator.allErrors;
 ## Credits
 Forked from [flutter_validate](https://github.com/jebright/flutter_validate) repo.
 
-[fluent_validation](https://pub.dev/packages/fluent_validation_flutter) repo.
+[fluent_validation](https://github.com/SKLn-Rad/Dart-Fluent-Validation) repo.
