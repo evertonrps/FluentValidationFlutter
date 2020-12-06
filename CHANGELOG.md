@@ -7,3 +7,7 @@
 * Add complete example.
 * Add project description
 * Remove warnings
+
+## [0.0.3] - Code review for pub.dev
+
+* Refactory validationResult.dart
