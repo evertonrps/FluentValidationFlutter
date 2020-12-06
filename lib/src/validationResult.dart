@@ -12,8 +12,6 @@ class ValidationResult {
   String get errorText {
     if (errors.length == 0) return null;
     Iterable<String> text = errors.map((f) => f.errorMessage);
-    return text.isNotEmpty
-        ? text.join(_delimiter)
-        : null;
+    return text.isNotEmpty ? text.join(_delimiter) : null;
   }
 }
