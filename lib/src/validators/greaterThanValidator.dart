@@ -9,10 +9,10 @@ class GreaterThanValidator extends BaseValidator {
 
   @override
   bool isValid(Object value) {
-    return GreaterThanValidator.length(value, _max);
+    return GreaterThanValidator.greaterThan(value, _max);
   }
 
-  static bool length(int value, max) {
+  static bool greaterThan(int value, max) {
     if (value == null) return false;
     return value > max;
   }

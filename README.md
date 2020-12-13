@@ -4,7 +4,7 @@ A small Flutter package for building validation rules.
 
 ## Getting Started
 
-This project was forked from [flutter_validate](https://pub.dev/packages/flutter_validate) (which has not been updated for a long time) and with some ideas from [fluent_validation](https://github.com/SKLn-Rad/Dart-Fluent-Validation), has been updated and added some changes to make it more like using FluentValidation .NET
+This project was forked from [flutter_validate](https://pub.dev/packages/flutter_validate) (which has not been updated for a long time) and with some ideas from [fluent_validation](https://pub.dev/packages/fluent_validation), has been updated and added some changes to make it more like using FluentValidation .NET
 
 ### Simple Example
 ```dart

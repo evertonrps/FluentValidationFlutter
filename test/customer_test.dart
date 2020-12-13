@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'customer.dart';
+import 'model/customer.dart';
 
 void main() {
   test("test valid customer", () {
