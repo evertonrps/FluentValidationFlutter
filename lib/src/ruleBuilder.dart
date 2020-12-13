@@ -1,7 +1,10 @@
 //import 'package:fluent_validation_flutter/src/validators/dateValidator.dart';
+import 'package:fluent_validation_flutter/src/validators/LessThanValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/equalValidator.dart';
+import 'package:fluent_validation_flutter/src/validators/greaterThanOrEqualTo.dart';
 import 'package:fluent_validation_flutter/src/validators/greaterThanValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/lengthValidator.dart';
+import 'package:fluent_validation_flutter/src/validators/lessThanOrEqualTo.dart';
 import 'package:fluent_validation_flutter/src/validators/mustValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/notNullValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/wrappingValidator.dart';
@@ -46,6 +49,21 @@ class RuleBuilder<T> {
 
   greaterThan(max) {
     var validator = new GreaterThanValidator(_key, max);
+    _container.rules.add(validator);
+  }
+
+  greaterThanOrEqualTo(max) {
+    var validator = new GreaterThanOrEqualToValidator(_key, max);
+    _container.rules.add(validator);
+  }
+
+  lessThan(max) {
+    var validator = new LessThanValidator(_key, max);
+    _container.rules.add(validator);
+  }
+
+  lessThanOrEqualTo(max) {
+    var validator = new LessThanOrEqualToValidator(_key, max);
     _container.rules.add(validator);
   }
 

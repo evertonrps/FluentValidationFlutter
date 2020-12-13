@@ -11,3 +11,9 @@
 ## [0.0.3] - Code review for pub.dev
 
 * Refactory validationResult.dart
+
+## [0.0.4] - Add new Built-in Validators
+
+* Greater Than Or Equal Validator
+* Less Than Validator
+* Less Than Or Equal Validator

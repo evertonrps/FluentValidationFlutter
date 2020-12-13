@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'contact.dart';
+import 'model/contact.dart';
 
 void main() {
   Contact contact;
