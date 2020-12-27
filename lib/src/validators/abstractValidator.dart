@@ -14,7 +14,7 @@ abstract class AbstractValidator<T> {
   AbstractValidator() {
     //FYI - RuleContainer is just a list of validators that are 'assigned' to a particular property to validate.
     _rules = Map<String, RuleContainer<T>>();
-    allErrors = List<String>();
+    allErrors = [];
   }
 
   ///Create a container to hold rules for a property.  The value of the
@@ -48,7 +48,7 @@ abstract class AbstractValidator<T> {
 
   ///Validate all rules
   List<ValidationResult> validate(T object) {
-    var result = new List<ValidationResult>();
+    List<ValidationResult> result = [];
     _rules.forEach((key, container) {
       result.add(validateRuleFor(object, key));
     });

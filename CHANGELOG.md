@@ -25,3 +25,7 @@
 * Empty Validator
 * Changed Growable constructor list
 
+## [0.0.6] - Code review for pub.dev
+
+* Changed Growable constructor list in abstractValidator.dart
+

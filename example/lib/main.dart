@@ -12,7 +12,7 @@ void main() {
 abstract class Entity<T> extends BaseValidator {}
 
 class BaseValidator {
-  List<String> _errors = new List<String>();
+  List<String> _errors = [];
   List<String> get errors => _errors;
   BaseValidator();
 
