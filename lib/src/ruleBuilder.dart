@@ -1,10 +1,13 @@
 //import 'package:fluent_validation_flutter/src/validators/dateValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/LessThanValidator.dart';
+import 'package:fluent_validation_flutter/src/validators/emptyValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/equalValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/greaterThanOrEqualTo.dart';
 import 'package:fluent_validation_flutter/src/validators/greaterThanValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/lengthValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/lessThanOrEqualTo.dart';
+import 'package:fluent_validation_flutter/src/validators/maxLengthValidator.dart';
+import 'package:fluent_validation_flutter/src/validators/minLengthValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/mustValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/notNullValidator.dart';
 import 'package:fluent_validation_flutter/src/validators/wrappingValidator.dart';
@@ -21,14 +24,13 @@ class RuleBuilder<T> {
     _key = key;
     _container = container;
   }
-
-  notEmpty() {
-    var validator = new NotEmptyValidator(_key);
+  notNull() {
+    var validator = new NotNullValidator(_key);
     _container.rules.add(validator);
   }
 
-  notNull() {
-    var validator = new NotNullValidator(_key);
+  notEmpty() {
+    var validator = new NotEmptyValidator(_key);
     _container.rules.add(validator);
   }
 
@@ -47,13 +49,13 @@ class RuleBuilder<T> {
     _container.rules.add(validator);
   }
 
-  greaterThan(max) {
-    var validator = new GreaterThanValidator(_key, max);
+  maxLength(max) {
+    var validator = new MaxLengthValidator(_key, max);
     _container.rules.add(validator);
   }
 
-  greaterThanOrEqualTo(max) {
-    var validator = new GreaterThanOrEqualToValidator(_key, max);
+  minLength(min) {
+    var validator = new MinLengthValidator(_key, min);
     _container.rules.add(validator);
   }
 
@@ -67,13 +69,13 @@ class RuleBuilder<T> {
     _container.rules.add(validator);
   }
 
-  phoneNumber() {
-    var validator = new RegExpValidator(_key, usPhoneMatcher);
+  greaterThan(max) {
+    var validator = new GreaterThanValidator(_key, max);
     _container.rules.add(validator);
   }
 
-  emailAddress() {
-    var validator = new RegExpValidator(_key, emailMatcher);
+  greaterThanOrEqualTo(max) {
+    var validator = new GreaterThanOrEqualToValidator(_key, max);
     _container.rules.add(validator);
   }
 
@@ -84,6 +86,21 @@ class RuleBuilder<T> {
 
   must<T>(MustPredicate<T> p) {
     var validator = new MustValidator<T>(_key, p);
+    _container.rules.add(validator);
+  }
+
+  empty() {
+    var validator = new EmptyValidator(_key);
+    _container.rules.add(validator);
+  }
+
+  emailAddress() {
+    var validator = new RegExpValidator(_key, emailMatcher);
+    _container.rules.add(validator);
+  }
+
+  phoneNumber() {
+    var validator = new RegExpValidator(_key, usPhoneMatcher);
     _container.rules.add(validator);
   }
 

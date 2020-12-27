@@ -11,11 +11,6 @@ void main() {
     expect(NotEmptyValidator.notEmpty(''), false);
   });
 
-  test('empty collection is passed, notEmpty called, is false', () {
-    List<int> emptyList = new List();
-    expect(NotEmptyValidator.notEmpty(emptyList), false);
-  });
-
   test('empty int is passed, notEmpty called, is false', () {
     int i;
     expect(NotEmptyValidator.notEmpty(i), false);

@@ -42,6 +42,23 @@ bool isValid = validator.isValid();
 List<String> errors = validator.allErrors;
 ```
 
+### Built-in Validators
+* NotNull Validator
+* NotEmpty Validator
+* NotEqual Validator
+* Equal Validator
+* Length Validator
+* MaxLength Validator
+* MinLength Validator
+* LessThan Validator
+* LessThanOrEqualTo Validator
+* GreaterThan Validator
+* GreaterThanOrEqualTo Validator
+* Matches Validator
+* Must Validator
+* Empty Validator
+* EmailAdress Validator
+
 ## Credits
 Forked from [flutter_validate](https://github.com/jebright/flutter_validate) repo.
 

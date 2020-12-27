@@ -61,7 +61,9 @@ class Customer extends Entity<Customer> {
 class CustomerValidator extends AbstractValidator<Customer> {
   CustomerValidator() {
     ruleFor("id", (customer) => customer.id).notNull();
-    ruleFor("name", (customer) => customer.name).notEmpty();
+    ruleFor("name", (customer) => customer.name)
+      ..notEmpty()
+      ..maxLength(13);
     ruleFor("age", (customer) => customer.age)
       ..greaterThan(18)
       ..withMessage("Custom Message");

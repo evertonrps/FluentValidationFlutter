@@ -17,3 +17,11 @@
 * Greater Than Or Equal Validator
 * Less Than Validator
 * Less Than Or Equal Validator
+
+## [0.0.5] - Add new Built-in Validators
+
+* Max Length Validator
+* Min Length Validator
+* Empty Validator
+* Changed Growable constructor list
+

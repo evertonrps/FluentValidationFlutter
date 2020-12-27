@@ -9,7 +9,7 @@ class NotEmptyValidator extends BaseValidator {
   }
 
   static bool notEmpty(Object value) {
-    return notNull(value) && notEmptyString(value) && notEmptyCollection(value);
+    return notNull(value) && notEmptyString(value);
   }
 
   static bool notNull(Object value) {
@@ -19,10 +19,5 @@ class NotEmptyValidator extends BaseValidator {
   static bool notEmptyString(Object value) {
     if (value is! String) return true;
     return (value as String).isNotEmpty;
-  }
-
-  static bool notEmptyCollection(Object value) {
-    if (value is! Iterable) return true;
-    return (value as Iterable).isNotEmpty;
   }
 }

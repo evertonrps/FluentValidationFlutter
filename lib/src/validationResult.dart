@@ -5,7 +5,7 @@ class ValidationResult {
   String _delimiter;
 
   ValidationResult({String delimiter = ' '}) {
-    errors = new List<ValidationFailure>();
+    errors = [];
     _delimiter = delimiter;
   }
 

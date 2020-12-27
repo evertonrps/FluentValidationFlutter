@@ -1,7 +1,7 @@
 import './validators/baseValidator.dart';
 
 class RuleContainer<T> {
-  List<BaseValidator> rules = new List<BaseValidator>();
+  List<BaseValidator> rules = [];
 
   //Function getter;
   Function(T e) getter;
