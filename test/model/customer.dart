@@ -1,9 +1,9 @@
 import 'package:fluent_validation_flutter/fluent_validation_flutter.dart';
 
 class Customer {
-  int id;
-  String name;
-  int age;
+  int? id;
+  String? name;
+  int? age;
 
   Customer({this.id, this.name, this.age});
 

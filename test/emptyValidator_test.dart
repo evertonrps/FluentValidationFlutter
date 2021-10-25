@@ -15,7 +15,7 @@ void main() {
   });
 
   test('empty int is passed, empty called, is true', () {
-    int i;
+    int? i;
     expect(EmptyValidator.empty(i), true);
   });
 

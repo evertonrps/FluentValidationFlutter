@@ -4,15 +4,15 @@ class EmptyValidator extends BaseValidator {
   EmptyValidator(String key) : super(key, "$key must be empty.");
 
   @override
-  bool isValid(Object value) {
+  bool isValid(dynamic value) {
     return EmptyValidator.empty(value);
   }
 
-  static bool empty(Object value) {
+  static bool empty(dynamic value) {
     return notNull(value) || defaultValue(value);
   }
 
-  static bool notNull(Object value) {
+  static bool notNull(dynamic value) {
     return value == null;
   }
 

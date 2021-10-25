@@ -3,7 +3,7 @@ import 'baseValidator.dart';
 typedef MustPredicate<T> = bool Function(T value);
 
 class MustValidator<T> extends BaseValidator {
-  MustPredicate<T> _predicate;
+  late MustPredicate<T> _predicate;
 
   MustValidator(String key, MustPredicate<T> p)
       : super(key, "$key is not valid.") {
@@ -11,11 +11,11 @@ class MustValidator<T> extends BaseValidator {
   }
 
   @override
-  bool isValid(Object value) {
+  bool isValid(dynamic value) {
     return MustValidator.must(_predicate, value);
   }
 
-  static bool must<T>(MustPredicate<T> p, Object value) {
+  static bool must<T>(MustPredicate<T> p, dynamic value) {
     return p(value);
   }
 }

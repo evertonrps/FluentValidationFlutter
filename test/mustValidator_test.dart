@@ -1,5 +1,5 @@
+import 'package:fluent_validation_flutter/src/validators/mustValidator.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluent_validation_flutter/fluent_validation_flutter.dart';
 
 void main() {
   test('must, predicate returns true, is valid', () {

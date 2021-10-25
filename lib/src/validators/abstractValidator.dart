@@ -5,12 +5,12 @@ import 'package:fluent_validation_flutter/src/validationResult.dart';
 import 'package:fluent_validation_flutter/src/validators/baseValidator.dart';
 
 abstract class AbstractValidator<T> {
-  T instance;
-  Map<String, RuleContainer<T>> _rules;
-  String errors;
-  List<String> allErrors;
+  T? instance;
+  late Map<String, RuleContainer<T>> _rules;
+  String? errors;
+  late List<String?> allErrors;
 
-  //AbstractValidator(this.instance) {
+  ///Initialize errors and rules objects
   AbstractValidator() {
     //FYI - RuleContainer is just a list of validators that are 'assigned' to a particular property to validate.
     _rules = Map<String, RuleContainer<T>>();
@@ -31,9 +31,9 @@ abstract class AbstractValidator<T> {
   ValidationResult validateRuleFor(T object, String key) {
     var result = new ValidationResult();
     if (_rules.containsKey(key)) {
-      dynamic value = _rules[key].getter(object);
+      dynamic value = _rules[key]?.getter(object);
       //Iterate each ValidationRule and invoke its validate method
-      _rules[key].rules.forEach((BaseValidator r) {
+      _rules[key]?.rules.forEach((BaseValidator r) {
         //Accumulate validation failures in order to create a validation result.
         var isValid = r.isValid(value);
         if (!isValid) {
@@ -62,37 +62,24 @@ abstract class AbstractValidator<T> {
   String concatenatedErrors(List<ValidationResult> list) {
     //var lst = validate();
     String result = list.fold<String>('', (previous, element) {
-      return element.errorText != null
-          ? '$previous ${element.errorText}'
-          : null;
+      return '$previous ${element.errorText ?? ''}';
     });
-    if (result == null) return null;
     return result.trim();
   }
 
+  /// List all errors
   getErrors(List<ValidationResult> list) {
     //var lst = validate();
     allErrors.clear();
     for (var item in list) {
       for (var e in item.errors) {
-        allErrors.add(e.errorMessage.trim());
+        allErrors.add(e.errorMessage?.trim());
       }
     }
-
-    // String result = list.fold<String>('', (previous, element) {
-    //   return element.errorText != null
-    //       ? '$previous ${element.errorText}'
-    //       : null;
-    // });
-    // if (result == null) return null;
-    // return result.trim();
   }
 
+  /// Returs entity is valid or not
   bool isValid() {
-    if (allErrors != null && allErrors.length > 0) {
-      return false;
-    } else {
-      return true;
-    }
+    return allErrors.length == 0;
   }
 }

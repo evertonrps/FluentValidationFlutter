@@ -1,5 +1,6 @@
 import 'package:fluent_validation_flutter/fluent_validation_flutter.dart';
 
+//dart run lib/main.dart
 void main() {
   var entity = Customer(id: 1, name: 'Tifa Lockhart', age: 25);
   if (entity.isValid()) {
@@ -12,8 +13,8 @@ void main() {
 abstract class Entity<T> extends BaseValidator {}
 
 class BaseValidator {
-  List<String> _errors = [];
-  List<String> get errors => _errors;
+  List<String?> _errors = [];
+  List<String?> get errors => _errors;
   BaseValidator();
 
   void validateNow<T>(AbstractValidator<T> validator, T instance) {
@@ -31,17 +32,17 @@ class BaseValidator {
 }
 
 class Customer extends Entity<Customer> {
-  int id;
-  String name;
-  int age;
+  late int id;
+  late String name;
+  late int age;
 
-  factory Customer({int id, String name, int age}) {
+  factory Customer({required int id, required String name, required int age}) {
     var customer = Customer._(id: id, name: name, age: age);
     customer.validateNow(CustomerValidator(), customer);
     return customer;
   }
 
-  Customer._({this.id, this.name, this.age});
+  Customer._({required this.id, required this.name, required this.age});
 
   Customer.fromJson(Map<String, dynamic> json) {
     id = json['id'];

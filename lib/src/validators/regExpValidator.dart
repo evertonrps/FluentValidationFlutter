@@ -9,7 +9,7 @@ final String emailMatcher =
 ///expressions ready for use - such as phone #s and email addresses.  But you may always
 ///add your own.
 class RegExpValidator extends BaseValidator {
-  RegExp _regex;
+  late RegExp _regex;
 
   RegExpValidator(String key, String expression)
       : super(key, "$key is not valid.") {
@@ -17,17 +17,23 @@ class RegExpValidator extends BaseValidator {
   }
 
   @override
-  bool isValid(Object value) {
+  bool isValid(dynamic value) {
     return value == null || _regex.hasMatch(value);
   }
 
-  static bool isValidUSPhoneNumber(String value) {
+  static bool isValidUSPhoneNumber(String? value) {
+    if (value == null) {
+      return true;
+    }
     RegExp r = new RegExp(usPhoneMatcher);
-    return value == null || r.hasMatch(value);
+    return r.hasMatch(value);
   }
 
-  static bool isValidEmailAddress(String value) {
+  static bool isValidEmailAddress(String? value) {
+    if (value == null) {
+      return true;
+    }
     RegExp r = new RegExp(emailMatcher);
-    return value == null || r.hasMatch(value);
+    return r.hasMatch(value);
   }
 }

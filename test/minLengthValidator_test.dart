@@ -18,7 +18,7 @@ void main() {
   });
 
   test('when a name is null, mininum called, does not throw', () {
-    String a;
+    String? a;
     expect(MinLengthValidator.minLength(a, 10), false);
   });
 }

@@ -1,10 +1,10 @@
 name: fluent_validation_flutter
 description: FluentValidationFlutter is strongly inspired by FluentValidation for C# and is intended to bring Dart a similar experience.
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/evertonrps/FluentValidationFlutter
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

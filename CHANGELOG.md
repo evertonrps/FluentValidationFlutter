@@ -29,3 +29,7 @@
 
 * Changed Growable constructor list in abstractValidator.dart
 
+## [0.0.7] - Null safety
+
+* Migrate to nullsafety
+

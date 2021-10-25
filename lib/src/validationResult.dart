@@ -1,17 +1,17 @@
 import './validationFailure.dart';
 
 class ValidationResult {
-  List<ValidationFailure> errors;
-  String _delimiter;
+  List<ValidationFailure> errors = [];
+  String _delimiter = ' ';
 
   ValidationResult({String delimiter = ' '}) {
-    errors = [];
+    //errors = [];
     _delimiter = delimiter;
   }
 
-  String get errorText {
+  String? get errorText {
     if (errors.length == 0) return null;
-    Iterable<String> text = errors.map((f) => f.errorMessage);
+    Iterable<String?> text = errors.map((f) => f.errorMessage);
     return text.isNotEmpty ? text.join(_delimiter) : null;
   }
 }

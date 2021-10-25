@@ -3,8 +3,7 @@ import '../message.dart';
 abstract class BaseValidator with Message {
   String _key;
 
-  BaseValidator(String key, String defaultErrorMessage) {
-    _key = key;
+  BaseValidator(this._key, String defaultErrorMessage) {
     message = defaultErrorMessage;
   }
 
@@ -12,7 +11,7 @@ abstract class BaseValidator with Message {
     return _key;
   }
 
-  bool isValid(Object value) {
+  bool isValid(dynamic value) {
     return false;
   }
 }

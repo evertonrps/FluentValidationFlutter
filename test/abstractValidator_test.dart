@@ -2,8 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'model/contact.dart';
 
 void main() {
-  Contact contact;
-  ContactValidator myValidator;
+  late Contact contact;
+  late ContactValidator myValidator;
 
   setUp(() async {
     contact = new Contact();
@@ -14,6 +14,7 @@ void main() {
   test(
       'when notEmpty called, name is null and withMessage not used, returns default message',
       () {
+    contact.name = '';
     myValidator.ruleFor("Name", (contact) => contact.name)..notEmpty();
     var validationResults = myValidator.validateRuleFor(contact, "Name");
     expect(validationResults.errors[0].errorMessage, "Name must be specified.");
@@ -62,6 +63,7 @@ void main() {
   test(
       'validate all, when 4 errors on 3 properites, has correct validation results and messages',
       () {
+    contact.name = '';
     contact.phone = '123';
     contact.password = 'password';
     myValidator.ruleFor('name', (contact) => contact.name)..notEmpty();
@@ -81,6 +83,7 @@ void main() {
   });
 
   test('all error test, when 4 errors, shows correct error text', () {
+    contact.name = '';
     contact.phone = '123';
     contact.password = 'password';
     myValidator.ruleFor('name', (contact) => contact.name)..notEmpty();

@@ -1,5 +1,5 @@
+import 'package:fluent_validation_flutter/src/validators/lengthValidator.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluent_validation_flutter/fluent_validation_flutter.dart';
 
 void main() {
   test('when string a is in range, length called, is true', () {
@@ -18,7 +18,7 @@ void main() {
   });
 
   test('when string is null, length called, does not throw', () {
-    String test;
+    String? test;
     expect(LengthValidator.length(test, 5, 10), false);
   });
 }

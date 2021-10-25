@@ -18,7 +18,7 @@ void main() {
   });
 
   test('when a name is null, maxLength called, does not throw', () {
-    String a;
+    String? a;
     expect(MaxLengthValidator.maxLength(a, 10), false);
   });
 }
